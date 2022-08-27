@@ -1,8 +1,8 @@
+// 創建渲染器的接口
+import { createRenderer } from "vue";
 import { Sprite, Container, Text, Texture } from "pixi.js";
 // 初始化
 
-// 創建渲染器的接口
-import { createRenderer } from "vue";
 // 創建 實現渲染器接口
 /*
 當我們實際調用渲染器時，就會走以下邏輯
@@ -34,12 +34,16 @@ const renderer = createRenderer<Container, Container>({
   },
   // 型別安全考量
   patchProp(el, key, prevValue, nextValue) {
-    // 處理屬性 ex img的src （在 pixi 裡為 texture ）
+    console.log(key);
     switch (key) {
       case "texture":
         (el as Sprite).texture = Texture.from(nextValue);
         break;
+
       default:
+        el[key] = nextValue;
+        // el.x = nextValue
+        // el.y = newtValue
         break;
     }
   },
