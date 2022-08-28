@@ -1,4 +1,11 @@
-## task
+## UI 與邏輯層分離的 TDD 測試先行練習
+
+- vue3、Vitest
+- typescript
+- custom renderer
+- pixi.js
+
+### task
 
 1. 基於 custom renderer api 實現把視圖渲染到 canvas 上
    （原本是預設渲染在 dom 上）
@@ -13,4 +20,7 @@
 - 敵軍
 - 碰撞（子彈和敵軍）
 
-鍵盤事件掛載與移除
+0829 wip 待實現
+
+- 鍵盤事件掛載與移除優化
+- 敵軍飛機左右橫跑隨機降落實現優化

@@ -9,13 +9,12 @@ import { Sprite, Container, Text, Texture } from "pixi.js";
 **/
 
 const renderer = createRenderer<Container, Container>({
-  //傳入一個obj-options 此為實際的渲染接口
+  // 傳入一個obj-options 此為實際的渲染接口
   // 在vue 3 運行時 進行調用
   createElement(type) {
     // 傳入虛擬節點的類型 type
-    // 而在vue3元碼默認runtime是dom 但我們需要他返回pixi對象
-
-    //Container 判斷當前是不是c 是的話 我們就創建
+    // 而在vue3元碼默認runtime是dom 但我們需要他返回 pixi 對象
+    //Container 判斷當前是不是 container 是的話 我們就創建
     let element;
     switch (type) {
       case "Container":
@@ -28,7 +27,6 @@ const renderer = createRenderer<Container, Container>({
 
       default:
         throw Error(`this type is not excess ${type}`);
-        break;
     }
     return element;
   },
@@ -55,7 +53,6 @@ const renderer = createRenderer<Container, Container>({
   },
   remove(el) {
     // 元素要刪除時調用
-
     if (el.parent) {
       el.parent.removeChild(el);
     }
@@ -77,7 +74,6 @@ const renderer = createRenderer<Container, Container>({
 });
 
 // 可以把renderer導出 或是 封裝createApp後直接導出調用
-
 export function createApp(rootComponent: any) {
   return renderer.createApp(rootComponent);
 }
